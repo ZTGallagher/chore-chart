@@ -1,0 +1,105 @@
+Kitchen:
+  Daily:
+    - Sweep (2pts)
+    - Clean Blue Table (2pts)
+    - Take out trash/recycling (1pt)
+    - Compost (1pt)
+    - Counters / island / stovetop (2pts)
+    - Unload Dishes (2pts)
+    - Load Dishes (2pts)
+  Weekly:
+    - Mop (3pts)
+  Monthly:
+    - Re-organize art supplies (3pts)
+    - Clean trash cans (3pts)
+    - Cabinet doors (3pts)
+    - Microwave (2pts)
+    - Fridge (3pts)
+    - Oven (3pts)
+    - Wiping window sill (1pt)
+    - Cleaning doors (2pts)
+
+Animals:
+  Daily:
+    - Feed/Water Cats (1pt)
+  Weekly:
+    - Change the cat litter (2pts)
+
+Dining Room:
+  Daily:
+    - Sweep (2pts)
+    - Clean table/chairs (2pts)
+  Weekly:
+    - Mop (2pts)
+    - Clean windows/windowsill (1pt)
+    - Clean off bookshelves (toys/tape/scissors/etc) (2pts)
+    - Clean glass door (2pts)
+
+Living Room:
+  Daily:
+    - Sweep (move couch) (2pts)
+    - Organize play corner (2pts)
+  Weekly:
+    - Mop (move couch) (2pts)
+    - Clean off bookshelves (2pts)
+    - Clean windows, windowsills (1pt)
+    - Clean wood door to den (2pts)
+    - Vacuum couch (2pts)
+    - Clean/Organize TV Nook (3pts)
+
+Entryway/Bathroom:
+  Daily:
+    - Sweep (2pts)
+    - Organize Shoes (1pt)
+    - Clean shoe cabinet top (1pt)
+  Weekly:
+    - Mop (2pts)
+    - Clean glass door (2pts)
+    - Mirror (1pt)
+    - Toilet (2pts)
+    - Sink (1pt)
+    - Empty Bathroom Trash Can (1pt)
+
+Upstairs Hallway:
+  Weekly:
+    - Clean Stairs (2pts)
+    - Clean Hallway (2pts)
+    - Vacuum Stairs (2pts)
+    - Vacuum Hallway (2pts)
+    - Wipe down banisters / handrails (2pts)
+  Monthly:
+    - Organize hallway closet (2pts)
+
+Personal:
+  Weekly:
+    - Full dirty laundry basket (2pts)
+
+3rd Floor Bathroom:
+  Daily:
+    - Sweep (2pt)
+    - Counter (1pt)
+    - Sink (1pt)
+  Weekly:
+    - Mop (2pts)
+    - Cabinet Doors (wood/glass) (2pts)
+    - Tub/Shower (2pts)
+    - Toilet (2pts)
+    - Clean wood door (2pts)
+    - Empty Trash Can (1pt)
+
+Den:
+  Daily:
+    - Organize couch/pillows (1pt)
+  Weekly:
+    - Vacuuming Stairs (2pts)
+    - Vacuuming Floor (2pts)
+    - Vacuuming Couch (2pts)
+    - Clean Windows/sills (1pt)
+    - Organize Media Center (2pts)
+    - Empty Trash Can (1pt)
+
+Outside:
+  Daily:
+    - Put away tools/toys (2pts)
+  Weekly:
+    - Sweeping (2pts)
