@@ -15,15 +15,15 @@ yaml_file = "./chore-list.yaml"
 
 # This list creates the column headers for the chart
 dates = [
-    "Monthly", 
-    "Weekly",
     "Sunday",
     "Monday",
     "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
-    "Saturday"
+    "Saturday",
+    "Weekly",
+    "Monthly" 
 ]
 
 # Set the colors for each chore frequency and the room row
@@ -36,10 +36,10 @@ color_config = {
 }
 
 # Set the max number of rows per page
-max_rows_per_page = 20
+max_rows_per_page = 40
 
 # Set the max number of characters per line for the chore text
-text_wrap_length = 22
+text_wrap_length = 40
 
 
 ############################## Functions ##############################
@@ -118,32 +118,28 @@ def create_subplot_for_subset(subset, ax):
         # Add room label only when it changes
         if room != prev_room:
             ax.add_patch(plt.Rectangle((0, y_pos - 0.5), 11, 1, color=room_row_color, zorder=0))
-            ax.text(0.1, y_pos, room, ha='left', va='center', fontweight='bold', fontsize=10)
+            ax.text(0.04, y_pos, room, ha='left', va='center', fontweight='bold', fontsize=8)
             prev_room = room
             y_pos += 1
 
         # Chore label
         wrapped_chore = wrap_text(chore, text_wrap_length)
-        ax.text(0.3, y_pos, wrapped_chore, ha='left', va='center', fontsize=9, style='italic')
+        ax.text(0.1, y_pos, wrapped_chore, ha='left', va='center', fontsize=7, style='italic')
 
         # Custom coloring based on chore frequency
         color_y_pos = y_pos - 0.5  # Adjust the y-position for coloring
         if freq == "Monthly":
-            ax.add_patch(plt.Rectangle((2, color_y_pos), 1, 1, color=color_config[freq]))
-            for day_idx in range(3, 11):
+            ax.add_patch(plt.Rectangle((10, color_y_pos), 1, 1, color=color_config[freq]))
+            for day_idx in range(2, 10):
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
         elif freq == "Weekly":
-            ax.add_patch(plt.Rectangle((3, color_y_pos), 1, 1, color=color_config[freq]))
-            for day_idx in [2] + list(range(4, 11)):
-                ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
-        elif freq == "Special":
-            ax.add_patch(plt.Rectangle((2, color_y_pos), 1, 1, color=color_config[freq]))
-            for day_idx in range(3, 11):
+            ax.add_patch(plt.Rectangle((9, color_y_pos), 1, 1, color=color_config[freq]))
+            for day_idx in [10] + list(range(2, 9)):
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
         else:  # Daily chores
-            for day_idx in range(4, 11):
+            for day_idx in range(2, 9):
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color=color_config.get(freq, 'grey')))
-            for day_idx in range(2, 4):
+            for day_idx in range(9, 11):
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
 
         y_pos += 1
@@ -154,7 +150,12 @@ def create_subplot_for_subset(subset, ax):
     week_range = f"{previous_sunday.strftime('%m/%d/%Y')} - {next_saturday.strftime('%m/%d/%Y')}"
     ax.set_xlabel(week_range, fontsize=16, style='oblique', labelpad=10)
     
+    for i in range(2, 11):  # Iterate over the columns (excluding the first two)
+        middle_of_cell = i + 0.5  # Calculate the middle of the cell
+        ax.axvline(x=middle_of_cell, color='darkgray', linestyle='-', linewidth=0.5)
+
     # Grid and axis formatting
+    ax.set_xlim(0, 10.5) 
     ax.set_ylim(-0.5, y_pos - 0.5)
     ax.set_yticks(np.arange(y_pos) + 0.5)
     ax.set_yticklabels([])
@@ -166,7 +167,7 @@ def create_subplot_for_subset(subset, ax):
     ax.tick_params(axis='x', which='major', labelsize=0, length=0)
     ax.tick_params(axis='x', which='minor', length=0) 
     ax.tick_params(axis='y', length=0)
-    ax.grid(True)
+    ax.grid(True, color='black')
 
 
 ############################## Main ##############################
