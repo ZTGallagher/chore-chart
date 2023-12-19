@@ -15,15 +15,8 @@ Kitchen:
     - Cabinet doors (3pts)
     - Microwave (2pts)
     - Fridge (3pts)
-    - Oven (3pts)
     - Wiping window sill (1pt)
     - Cleaning doors (2pts)
-
-Animals:
-  Daily:
-    - Feed & Water Cats (1pt)
-  Weekly:
-    - Change the cat litter (2pts)
 
 Dining Room:
   Daily:
@@ -43,9 +36,10 @@ Living Room:
     - Mop (move couch) (2pts)
     - Clean off bookshelves (2pts)
     - Clean windows, windowsills (1pt)
-    - Clean wood door to den (2pts)
     - Vacuum couch (2pts)
     - Clean/Organize TV Nook (3pts)
+  Monthly:
+    - Clean doors (den/outside) (2pt)
 
 Entryway/Bathroom:
   Daily:
@@ -70,10 +64,6 @@ Upstairs Hallway:
   Monthly:
     - Organize hallway closet (2pts)
 
-Personal:
-  Weekly:
-    - Full dirty laundry basket (2pts)
-
 3rd Floor Bathroom:
   Daily:
     - Sweep (2pt)
@@ -81,11 +71,12 @@ Personal:
     - Sink (1pt)
   Weekly:
     - Mop (2pts)
-    - Cabinet Doors (wood/glass) (2pts)
+    - Cabinet Doors (all) (2pts)
     - Tub/Shower (2pts)
     - Toilet (2pts)
-    - Clean wood door (2pts)
     - Empty Trash Can (1pt)
+  Monthly:
+    - Clean wood door (1pt)
 
 Den:
   Daily:
@@ -103,3 +94,13 @@ Outside:
     - Put away tools/toys (2pts)
   Weekly:
     - Sweeping (2pts)
+
+Personal:
+  Individual:
+    - Weekly laundry (2pts)
+
+Animals:
+  Daily:
+    - Feed & Water Cats (1pt)
+  Weekly:
+    - Scoop0 cat litter (2pts)

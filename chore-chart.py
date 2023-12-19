@@ -23,7 +23,7 @@ dates = [
     "Friday",
     "Saturday",
     "Weekly",
-    "Monthly" 
+    "Monthly"
 ]
 
 # Set the colors for each chore frequency and the room row
@@ -32,14 +32,14 @@ color_config = {
     "Daily": "Azure",
     "Weekly": "LemonChiffon",
     "Monthly": "LightPink",
-    "Special": "LightCoral"
+    "Individual": "DarkTurquoise"
 }
 
 # Set the max number of rows per page
-max_rows_per_page = 40
+max_rows_per_page = 28
 
 # Set the max number of characters per line for the chore text
-text_wrap_length = 40
+text_wrap_length = 30
 
 
 ############################## Functions ##############################
@@ -118,28 +118,42 @@ def create_subplot_for_subset(subset, ax):
         # Add room label only when it changes
         if room != prev_room:
             ax.add_patch(plt.Rectangle((0, y_pos - 0.5), 11, 1, color=room_row_color, zorder=0))
-            ax.text(0.04, y_pos, room, ha='left', va='center', fontweight='bold', fontsize=8)
+            ax.text(0.04, y_pos, room, ha='left', va='center', fontweight='bold', fontsize=10)
             prev_room = room
             y_pos += 1
 
         # Chore label
         wrapped_chore = wrap_text(chore, text_wrap_length)
-        ax.text(0.1, y_pos, wrapped_chore, ha='left', va='center', fontsize=7, style='italic')
+        ax.text(0.1, y_pos, wrapped_chore, ha='left', va='center', fontsize=8, style='italic')
+
+        monthly_column = dates.index("Monthly")  + 2
+        weekly_column = dates.index("Weekly") + 2
+        columns = list(range(2, 11))
+
 
         # Custom coloring based on chore frequency
         color_y_pos = y_pos - 0.5  # Adjust the y-position for coloring
         if freq == "Monthly":
-            ax.add_patch(plt.Rectangle((10, color_y_pos), 1, 1, color=color_config[freq]))
-            for day_idx in range(2, 10):
+            ax.add_patch(plt.Rectangle((monthly_column, color_y_pos), 1, 1, color=color_config[freq]))
+            columns.remove(monthly_column)
+            for day_idx in columns:
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
         elif freq == "Weekly":
-            ax.add_patch(plt.Rectangle((9, color_y_pos), 1, 1, color=color_config[freq]))
-            for day_idx in [10] + list(range(2, 9)):
+            ax.add_patch(plt.Rectangle((weekly_column, color_y_pos), 1, 1, color=color_config[freq]))
+            columns.remove(weekly_column)
+            for day_idx in columns:
+                ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
+        elif freq == "Individual":
+            for day_idx in range(2, 6):
+                ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color=color_config.get(freq, 'grey')))
+            for day_idx in range(6, 11):
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
         else:  # Daily chores
-            for day_idx in range(2, 9):
+            columns.remove(weekly_column)
+            columns.remove(monthly_column)
+            for day_idx in columns:
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color=color_config.get(freq, 'grey')))
-            for day_idx in range(9, 11):
+            for day_idx in [weekly_column, monthly_column]:
                 ax.add_patch(plt.Rectangle((day_idx, color_y_pos), 1, 1, color='lightgray'))
 
         y_pos += 1
